@@ -1,0 +1,61 @@
+====================================================
+ Net Core AI — VPS Deployment Command
+====================================================
+
+Run this on your VPS every time you want to deploy:
+
+  cd ~/netcoreai && git pull origin main && docker compose down && docker compose build && docker compose up -d
+
+====================================================
+
+Step-by-step explanation:
+
+  cd ~/netcoreai
+    Navigate to the project directory on the VPS.
+    Adjust the path if your repo is cloned elsewhere
+    (e.g. /var/www/netcoreai, /home/joseph/netcoreai).
+
+  git pull origin main
+    Pull the latest code from the main branch.
+
+  docker compose down
+    Stop and remove the running container gracefully.
+
+  docker compose build
+    Rebuild the Docker image from the updated Dockerfile.
+    Use `docker compose build --no-cache` if you need a
+    fully clean rebuild (slower, but avoids stale layers).
+
+  docker compose up -d
+    Start the container in detached (background) mode.
+
+====================================================
+
+VERIFY DEPLOYMENT
+
+After running the command, check the container is healthy:
+
+  docker compose ps
+  docker compose logs -f --tail=50
+
+The site proxies through Traefik. Confirm it's live at:
+  https://netcoreai.tech
+
+====================================================
+
+ROLLBACK (if something breaks)
+
+  cd ~/netcoreai && git log --oneline -10
+  git checkout <previous-commit-hash>
+  docker compose down && docker compose build && docker compose up -d
+
+To return to main after a rollback:
+  git checkout main
+
+====================================================
+
+ONE-LINER WITH LOGGING (recommended for production)
+
+  cd ~/netcoreai && git pull origin main && docker compose down && docker compose build && docker compose up -d && docker compose logs --tail=20
+
+====================================================
