@@ -6,6 +6,7 @@ import { Mail, ArrowRight, MessageCircle } from "lucide-react"
 import { fadeUpVariants } from "@/lib/animation"
 import { SectionBadge } from "@/components/ui/SectionBadge"
 import { IconBox } from "@/components/ui/IconBox"
+import { LampContainer } from "@/components/ui/lamp"
 
 export default function Contact() {
   const ref = useRef(null)
@@ -15,9 +16,10 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="py-28 px-6 border-t border-stone-800"
+      className="border-t border-stone-800"
     >
-      <div className="max-w-6xl mx-auto">
+      <LampContainer className="pt-12 pb-0">
+        <div className="w-full max-w-6xl mx-auto px-6 pb-28">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <motion.div
@@ -124,6 +126,7 @@ export default function Contact() {
           </motion.div>
         </div>
       </div>
+      </LampContainer>
     </section>
   )
 }

@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion"
 import { Phone } from "lucide-react"
 import { fadeUpVariants } from "@/lib/animation"
 import { SectionBadge } from "@/components/ui/SectionBadge"
+import { SmokeBackground } from "@/components/ui/spooky-smoke-animation"
 
 const team = [
   {
@@ -44,8 +45,9 @@ export default function Team() {
     <section
       id="team"
       ref={ref}
-      className="py-28 px-6 border-t border-stone-800"
+      className="relative py-28 px-6 border-t border-stone-800 overflow-hidden"
     >
+      <SmokeBackground smokeColor="#64b5f6" />
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <motion.div
@@ -90,11 +92,10 @@ export default function Team() {
               animate={isInView ? "visible" : "hidden"}
               custom={0.2 + i * 0.12}
               variants={fadeUpVariants}
-              className="group p-6 rounded-2xl bg-stone-900/50 border border-stone-800 hover:border-accent/30 transition-all duration-300 hover:scale-[1.02]"
+              className="group p-6 rounded-2xl bg-stone-900/50 border border-stone-800 hover:border-accent/30 transition-all duration-300 hover:scale-[1.02] flex flex-col items-center text-center"
             >
-              {/* Monogram avatar */}
               <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${member.hue} flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300`}>
-                <span className="text-white font-bold text-xl tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                <span className="text-white font-bold text-xl tracking-tight">
                   {member.initials}
                 </span>
               </div>

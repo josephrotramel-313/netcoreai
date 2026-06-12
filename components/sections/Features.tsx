@@ -5,6 +5,7 @@ import { useRef } from "react"
 import { FeaturesSection } from "@/components/blocks/features-8"
 import { fadeUpVariants } from "@/lib/animation"
 import { SectionBadge } from "@/components/ui/SectionBadge"
+import { ShaderAnimation } from "@/components/ui/shader-lines"
 
 export default function Features() {
   const ref = useRef(null)
@@ -14,8 +15,9 @@ export default function Features() {
     <section
       id="services"
       ref={ref}
-      className="py-28 px-6 border-t border-stone-800"
+      className="relative py-28 px-6 border-t border-stone-800 overflow-hidden"
     >
+      <ShaderAnimation />
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <motion.div
