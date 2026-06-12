@@ -6,7 +6,7 @@ services:
     container_name: netcoreai
     restart: unless-stopped
     ports:
-      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:3001:3000"
     environment:
       - NODE_ENV=production
     labels:
@@ -15,7 +15,7 @@ services:
       - "traefik.http.routers.netcoreai.entrypoints=websecure"
       - "traefik.http.routers.netcoreai.tls.certresolver=letsencrypt"
       - "traefik.http.services.netcoreai.loadbalancer.server.port=3000"
-      - "traefik.http.services.netcoreai.loadbalancer.server.url=http://127.0.0.1:3000"
+      - "traefik.http.services.netcoreai.loadbalancer.server.url=http://127.0.0.1:3001"
       - "traefik.http.middlewares.netcoreai-www-redirect.redirectregex.regex=^https://www\\.netcoreai\\.tech/(.*)"
       - "traefik.http.middlewares.netcoreai-www-redirect.redirectregex.replacement=https://netcoreai.tech/$${1}"
       - "traefik.http.middlewares.netcoreai-www-redirect.redirectregex.permanent=true"
