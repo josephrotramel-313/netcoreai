@@ -5,21 +5,18 @@ services:
     build: .
     container_name: netcoreai
     restart: unless-stopped
+    ports:
+      - "127.0.0.1:3000:3000"
     environment:
       - NODE_ENV=production
-    networks:
-      - proxy
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.netcoreai.rule=Host(`netcoreai.tech`) || Host(`www.netcoreai.tech`)"
       - "traefik.http.routers.netcoreai.entrypoints=websecure"
       - "traefik.http.routers.netcoreai.tls.certresolver=letsencrypt"
       - "traefik.http.services.netcoreai.loadbalancer.server.port=3000"
+      - "traefik.http.services.netcoreai.loadbalancer.server.url=http://127.0.0.1:3000"
       - "traefik.http.middlewares.netcoreai-www-redirect.redirectregex.regex=^https://www\\.netcoreai\\.tech/(.*)"
       - "traefik.http.middlewares.netcoreai-www-redirect.redirectregex.replacement=https://netcoreai.tech/$${1}"
       - "traefik.http.middlewares.netcoreai-www-redirect.redirectregex.permanent=true"
       - "traefik.http.routers.netcoreai.middlewares=netcoreai-www-redirect"
-
-networks:
-  proxy:
-    external: true
