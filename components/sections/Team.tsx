@@ -14,7 +14,7 @@ const team = [
     phone: "(469) 442-5018",
     tel: "+14694425018",
     bio: "Leads the company vision, client relationships, and strategic direction. Obsessed with delivering outcomes, not just deliverables.",
-    hue: "from-amber-600 to-amber-800",
+    hue: "from-blue-500 to-blue-700",
   },
   {
     name: "Felix Odunayo",
@@ -32,7 +32,7 @@ const team = [
     phone: "(214) 636-4709",
     tel: "+12146364709",
     bio: "Drives growth strategy, brand positioning, and client acquisition. Turns great products into compelling stories.",
-    hue: "from-amber-700 to-stone-700",
+    hue: "from-blue-600 to-stone-700",
   },
 ]
 
@@ -66,7 +66,7 @@ export default function Team() {
           >
             The people behind
             <br />
-            <span className="text-amber-500">every great build.</span>
+            <span className="text-accent">every great build.</span>
           </motion.h2>
 
           <motion.p
@@ -90,11 +90,11 @@ export default function Team() {
               animate={isInView ? "visible" : "hidden"}
               custom={0.2 + i * 0.12}
               variants={fadeUpVariants}
-              className="group p-6 rounded-2xl bg-stone-900/50 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 hover:scale-[1.02]"
+              className="group p-6 rounded-2xl bg-stone-900/50 border border-stone-800 hover:border-accent/30 transition-all duration-300 hover:scale-[1.02]"
             >
               {/* Monogram avatar */}
               <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${member.hue} flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300`}>
-                <span className="text-white font-bold text-xl tracking-tight" style={{ fontFamily: "Syne, sans-serif" }}>
+                <span className="text-white font-bold text-xl tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                   {member.initials}
                 </span>
               </div>
@@ -102,7 +102,7 @@ export default function Team() {
               <h3 className="text-stone-50 font-bold text-xl mb-0.5">
                 {member.name}
               </h3>
-              <p className="text-amber-500 text-sm font-semibold mb-3">
+              <p className="text-accent text-sm font-semibold mb-3">
                 {member.title}
               </p>
               <p className="text-stone-400 text-sm leading-relaxed mb-5">
@@ -111,7 +111,7 @@ export default function Team() {
 
               <a
                 href={`tel:${member.tel}`}
-                className="inline-flex items-center gap-2 text-stone-400 hover:text-amber-400 text-sm font-medium transition-colors duration-200 cursor-pointer"
+                className="inline-flex items-center gap-2 text-stone-400 hover:text-accent text-sm font-medium transition-colors duration-200 cursor-pointer"
                 aria-label={`Call ${member.name}`}
               >
                 <Phone size={14} />

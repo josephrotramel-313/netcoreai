@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Logo */}
           <div className="flex flex-col items-center md:items-start gap-2">
             <span className="text-xl font-bold tracking-tight">
-              NetCore<span className="text-amber-500">AI</span>
+              NetCore<span className="text-accent">AI</span>
             </span>
             <p className="text-stone-500 text-sm">
               Premium Web Development Agency
@@ -41,7 +41,7 @@ export default function Footer() {
           {/* Email */}
           <a
             href="mailto:netcoreaisolutions@gmail.com"
-            className="inline-flex items-center gap-2 text-stone-500 hover:text-amber-400 text-sm transition-colors duration-200 cursor-pointer"
+            className="inline-flex items-center gap-2 text-stone-500 hover:text-accent text-sm transition-colors duration-200 cursor-pointer"
             aria-label="Send email to Net Core AI"
           >
             <Mail size={15} />

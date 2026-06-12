@@ -62,7 +62,7 @@ export default function About() {
             >
               Built by developers
               <br />
-              <span className="text-amber-500">who care about craft.</span>
+              <span className="text-accent">who care about craft.</span>
             </motion.h2>
 
             <motion.p
@@ -98,17 +98,17 @@ export default function About() {
               className="flex flex-wrap gap-6"
             >
               <div className="flex flex-col">
-                <span className="text-3xl font-extrabold text-amber-500">3+</span>
+                <span className="text-3xl font-extrabold text-accent">3+</span>
                 <span className="text-stone-400 text-sm mt-1">Years of Experience</span>
               </div>
               <div className="w-px bg-stone-700" />
               <div className="flex flex-col">
-                <span className="text-3xl font-extrabold text-amber-500">100%</span>
+                <span className="text-3xl font-extrabold text-accent">100%</span>
                 <span className="text-stone-400 text-sm mt-1">Custom Code</span>
               </div>
               <div className="w-px bg-stone-700" />
               <div className="flex flex-col">
-                <span className="text-3xl font-extrabold text-amber-500">Full</span>
+                <span className="text-3xl font-extrabold text-accent">Full</span>
                 <span className="text-stone-400 text-sm mt-1">Handoff & Training</span>
               </div>
             </motion.div>
@@ -124,7 +124,7 @@ export default function About() {
                   animate={isInView ? "visible" : "hidden"}
                   custom={0.2 + i * 0.12}
                   variants={fadeUpVariants}
-                  className="flex gap-5 p-6 rounded-2xl bg-stone-900/70 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group backdrop-blur-sm"
+                  className="flex gap-5 p-6 rounded-2xl bg-stone-900/70 border border-stone-800 hover:border-accent/30 transition-all duration-300 group backdrop-blur-sm"
                 >
                   <div className="flex-shrink-0">
                     <IconBox icon={Icon} size="md" />

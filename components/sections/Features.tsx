@@ -36,7 +36,7 @@ export default function Features() {
           >
             Services built around
             <br />
-            <span className="text-amber-500">your ambitions.</span>
+            <span className="text-accent">your ambitions.</span>
           </motion.h2>
 
           <motion.p

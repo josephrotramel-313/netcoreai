@@ -16,9 +16,9 @@ export function IconBox({
   const { box, iconSize } = sizes[size]
   return (
     <div
-      className={`${box} bg-amber-500/10 border border-amber-500/20 flex items-center justify-center group-hover:bg-amber-500/15 transition-colors duration-300`}
+      className={`${box} bg-accent/10 border border-accent/20 flex items-center justify-center group-hover:bg-accent/15 transition-colors duration-300`}
     >
-      <Icon size={iconSize} className="text-amber-500" />
+      <Icon size={iconSize} className="text-accent" />
     </div>
   )
 }

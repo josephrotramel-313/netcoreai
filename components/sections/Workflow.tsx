@@ -104,7 +104,7 @@ export default function Workflow() {
       ref={sectionRef}
       className="relative py-28 border-t border-stone-800 overflow-hidden"
     >
-      <Waves strokeColor="rgba(202,138,4,0.25)" backgroundColor="transparent" pointerSize={0.3} />
+      <Waves strokeColor="rgba(100,181,246,0.2)" backgroundColor="transparent" pointerSize={0.3} />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 mb-12">
         <motion.div
@@ -126,20 +126,20 @@ export default function Workflow() {
           >
             A process built for
             <br />
-            <span className="text-amber-500">clarity and results.</span>
+            <span className="text-accent">clarity and results.</span>
           </motion.h2>
 
           <div className="hidden md:flex gap-3">
             <button
               onClick={() => scroll("left")}
-              className="cursor-pointer w-10 h-10 rounded-full border border-stone-700 hover:border-amber-500/50 flex items-center justify-center text-stone-400 hover:text-stone-50 transition-all duration-200"
+              className="cursor-pointer w-10 h-10 rounded-full border border-stone-700 hover:border-accent/50 flex items-center justify-center text-stone-400 hover:text-stone-50 transition-all duration-200"
               aria-label="Scroll left"
             >
               <ChevronLeft size={18} />
             </button>
             <button
               onClick={() => scroll("right")}
-              className="cursor-pointer w-10 h-10 rounded-full border border-stone-700 hover:border-amber-500/50 flex items-center justify-center text-stone-400 hover:text-stone-50 transition-all duration-200"
+              className="cursor-pointer w-10 h-10 rounded-full border border-stone-700 hover:border-accent/50 flex items-center justify-center text-stone-400 hover:text-stone-50 transition-all duration-200"
               aria-label="Scroll right"
             >
               <ChevronRight size={18} />
@@ -178,11 +178,11 @@ export default function Workflow() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.05 }}
-              className="relative flex-shrink-0 w-72 p-6 rounded-2xl bg-stone-900/80 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group backdrop-blur-sm"
+              className="relative flex-shrink-0 w-72 p-6 rounded-2xl bg-stone-900/80 border border-stone-800 hover:border-accent/30 transition-all duration-300 group backdrop-blur-sm"
               style={{ scrollSnapAlign: "start" }}
             >
-              <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mb-5 group-hover:bg-amber-500/15 transition-colors duration-300">
-                <span className="text-amber-500 font-extrabold text-lg font-mono">
+              <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/30 flex items-center justify-center mb-5 group-hover:bg-accent/15 transition-colors duration-300">
+                <span className="text-accent font-extrabold text-lg font-mono">
                   {step.number}
                 </span>
               </div>
@@ -195,7 +195,7 @@ export default function Workflow() {
               </p>
 
               {i < steps.length - 1 && (
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-px bg-amber-500/20" />
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-px bg-accent/20" />
               )}
             </motion.div>
           ))}
@@ -212,7 +212,7 @@ export default function Workflow() {
                 scrollRef.current.scrollTo({ left: i * CARD_WIDTH, behavior: "smooth" })
               }}
               className={`h-1 rounded-full transition-all duration-300 cursor-pointer ${
-                i === activeIndex ? "w-6 bg-amber-500" : "w-1.5 bg-stone-700"
+                i === activeIndex ? "w-6 bg-accent" : "w-1.5 bg-stone-700"
               }`}
               aria-label={`Go to step ${i + 1}`}
             />

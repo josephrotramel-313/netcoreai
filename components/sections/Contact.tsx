@@ -38,7 +38,7 @@ export default function Contact() {
             >
               Ready to build
               <br />
-              <span className="text-amber-500">something great?</span>
+              <span className="text-accent">something great?</span>
             </motion.h2>
 
             <motion.p
@@ -68,7 +68,7 @@ export default function Contact() {
                 <IconBox icon={Mail} size="lg" />
                 <div>
                   <p className="text-stone-500 text-xs font-medium mb-0.5">Email us directly</p>
-                  <p className="text-stone-200 font-semibold group-hover:text-amber-400 transition-colors duration-200">
+                  <p className="text-stone-200 font-semibold group-hover:text-accent transition-colors duration-200">
                     netcoreaisolutions@gmail.com
                   </p>
                 </div>
@@ -76,7 +76,7 @@ export default function Contact() {
 
               <a
                 href="mailto:netcoreaisolutions@gmail.com?subject=Project%20Inquiry&body=Hi%20Net%20Core%20AI%20team%2C%0A%0AI%27d%20like%20to%20discuss%20a%20project%20with%20you.%0A%0AHere%27s%20a%20brief%20overview%3A%0A"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-base transition-all duration-200 hover:scale-105 cursor-pointer w-fit"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-accent hover:bg-accent/90 text-stone-950 font-semibold text-base transition-all duration-200 hover:scale-105 cursor-pointer w-fit"
               >
                 <MessageCircle size={18} />
                 Start a Conversation
@@ -104,20 +104,20 @@ export default function Contact() {
                   "Dedicated point of contact throughout",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3 text-stone-400 text-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="p-6 rounded-2xl bg-amber-500/5 border border-amber-500/20">
+            <div className="p-6 rounded-2xl bg-accent/5 border border-accent/20">
               <p className="text-stone-300 text-sm leading-relaxed italic">
                 &ldquo;We don&apos;t take on every project — we take on the right ones.
                 If we&apos;re a good fit, we&apos;ll tell you. If we&apos;re not, we&apos;ll
                 point you in the right direction.&rdquo;
               </p>
-              <p className="text-amber-500 text-sm font-semibold mt-4">
+              <p className="text-accent text-sm font-semibold mt-4">
                 — Net Core AI Team
               </p>
             </div>

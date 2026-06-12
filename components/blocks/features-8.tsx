@@ -71,12 +71,12 @@ export function FeaturesSection() {
         animate={isInView ? "visible" : "hidden"}
         custom={0}
         variants={cardVariants}
-        className="md:col-span-2 p-8 rounded-2xl bg-stone-900/60 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group"
+        className="md:col-span-2 p-8 rounded-2xl bg-stone-900/60 border border-stone-800 hover:border-accent/30 transition-all duration-300 group"
       >
         <div className="flex items-start gap-4 mb-6">
           <IconBox icon={services[0].icon} size="lg" />
           <div>
-            <span className="text-xs font-semibold text-amber-500/70 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-accent/70 uppercase tracking-wider">
               {services[0].tag}
             </span>
             <h3 className="text-xl font-bold text-stone-50 mt-0.5">
@@ -109,12 +109,12 @@ export function FeaturesSection() {
         animate={isInView ? "visible" : "hidden"}
         custom={0.1}
         variants={cardVariants}
-        className="p-6 rounded-2xl bg-stone-900/60 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group"
+        className="p-6 rounded-2xl bg-stone-900/60 border border-stone-800 hover:border-accent/30 transition-all duration-300 group"
       >
         <div className="mb-4">
           <IconBox icon={services[1].icon} size="md" />
         </div>
-        <span className="text-xs font-semibold text-amber-500/70 uppercase tracking-wider">
+        <span className="text-xs font-semibold text-accent/70 uppercase tracking-wider">
           {services[1].tag}
         </span>
         <h3 className="text-lg font-bold text-stone-50 mt-1 mb-3">
@@ -131,12 +131,12 @@ export function FeaturesSection() {
         animate={isInView ? "visible" : "hidden"}
         custom={0.2}
         variants={cardVariants}
-        className="p-6 rounded-2xl bg-stone-900/60 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group"
+        className="p-6 rounded-2xl bg-stone-900/60 border border-stone-800 hover:border-accent/30 transition-all duration-300 group"
       >
         <div className="mb-4">
           <IconBox icon={services[2].icon} size="md" />
         </div>
-        <span className="text-xs font-semibold text-amber-500/70 uppercase tracking-wider">
+        <span className="text-xs font-semibold text-accent/70 uppercase tracking-wider">
           {services[2].tag}
         </span>
         <h3 className="text-lg font-bold text-stone-50 mt-1 mb-3">
@@ -153,7 +153,7 @@ export function FeaturesSection() {
               initial={{ height: 0 }}
               animate={isInView ? { height: `${h}%` } : { height: 0 }}
               transition={{ duration: 0.5, delay: 0.4 + i * 0.05 }}
-              className="flex-1 rounded-sm bg-amber-500/30 group-hover:bg-amber-500/50 transition-colors duration-300"
+              className="flex-1 rounded-sm bg-accent/30 group-hover:bg-accent/50 transition-colors duration-300"
             />
           ))}
         </div>
@@ -169,12 +169,12 @@ export function FeaturesSection() {
             animate={isInView ? "visible" : "hidden"}
             custom={0.3 + i * 0.1}
             variants={cardVariants}
-            className="p-6 rounded-2xl bg-stone-900/60 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group"
+            className="p-6 rounded-2xl bg-stone-900/60 border border-stone-800 hover:border-accent/30 transition-all duration-300 group"
           >
             <div className="mb-4">
               <IconBox icon={Icon} size="sm" />
             </div>
-            <span className="text-xs font-semibold text-amber-500/70 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-accent/70 uppercase tracking-wider">
               {service.tag}
             </span>
             <h3 className="text-base font-bold text-stone-50 mt-1 mb-2">

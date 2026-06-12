@@ -45,7 +45,7 @@ export default function Hero() {
         className="absolute inset-0 opacity-5"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(202,138,4,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(202,138,4,0.3) 1px, transparent 1px)",
+            "linear-gradient(rgba(100,181,246,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(100,181,246,0.15) 1px, transparent 1px)",
           backgroundSize: "80px 80px",
         }}
         aria-hidden="true"
@@ -57,9 +57,8 @@ export default function Hero() {
           animate="visible"
           custom={0}
           variants={reducedFadeUp}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-sm font-medium mb-8"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-8"
         >
-          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
           Premium Web Development Agency
         </motion.div>
 
@@ -78,7 +77,7 @@ export default function Hero() {
           animate="visible"
           custom={0.3}
           variants={reducedFadeUp}
-          className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-amber-500 leading-none mb-8 min-h-[1.2em]"
+          className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-accent leading-none mb-8 min-h-[1.2em]"
         >
           <Typewriter
             words={typewriterPhrases}
@@ -110,14 +109,14 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-base transition-all duration-200 hover:scale-105 cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-accent hover:bg-accent/90 text-stone-950 font-semibold text-base transition-all duration-200 hover:scale-105 cursor-pointer"
           >
             Start Your Project
             <ArrowRight size={18} />
           </a>
           <a
             href="#about"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-stone-700 hover:border-amber-500/50 text-stone-300 hover:text-stone-50 font-semibold text-base transition-all duration-200 hover:scale-105 cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-stone-700 hover:border-accent/50 text-stone-300 hover:text-stone-50 font-semibold text-base transition-all duration-200 hover:scale-105 cursor-pointer"
           >
             Learn More
           </a>

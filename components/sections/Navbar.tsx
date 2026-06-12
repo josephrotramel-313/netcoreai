@@ -49,8 +49,8 @@ export default function Navbar() {
             className="cursor-pointer group"
             aria-label="Go to top"
           >
-            <span className="text-xl font-bold tracking-tight text-stone-50 group-hover:text-amber-500 transition-colors duration-200">
-              NetCore<span className="text-amber-500">AI</span>
+            <span className="text-xl font-bold tracking-tight text-stone-50 group-hover:text-accent transition-colors duration-200">
+              NetCore<span className="text-accent">AI</span>
             </span>
           </button>
 
@@ -68,7 +68,7 @@ export default function Navbar() {
 
           <button
             onClick={() => handleNavClick("#contact")}
-            className="hidden md:inline-flex cursor-pointer px-5 py-2.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-sm font-semibold transition-all duration-200 hover:scale-105"
+            className="hidden md:inline-flex cursor-pointer px-5 py-2.5 rounded-lg bg-accent hover:bg-accent/90 text-stone-950 text-sm font-semibold transition-all duration-200 hover:scale-105"
           >
             Get a Quote
           </button>
@@ -97,14 +97,14 @@ export default function Navbar() {
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-left text-base font-medium text-stone-300 hover:text-amber-400 transition-colors duration-200 cursor-pointer py-2 border-b border-stone-800/50 last:border-0"
+                  className="text-left text-base font-medium text-stone-300 hover:text-accent transition-colors duration-200 cursor-pointer py-2 border-b border-stone-800/50 last:border-0"
                 >
                   {link.label}
                 </button>
               ))}
               <button
                 onClick={() => handleNavClick("#contact")}
-                className="cursor-pointer mt-2 px-5 py-3 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-sm font-semibold transition-all duration-200 text-center"
+                className="cursor-pointer mt-2 px-5 py-3 rounded-lg bg-accent hover:bg-accent/90 text-stone-950 text-sm font-semibold transition-all duration-200 text-center"
               >
                 Get a Quote
               </button>
