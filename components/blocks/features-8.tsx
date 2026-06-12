@@ -3,6 +3,7 @@
 import { motion, useInView, type Variants } from "framer-motion"
 import { useRef } from "react"
 import { Code2, Palette, Gauge, Lock, Sliders, Globe } from "lucide-react"
+import { IconBox } from "@/components/ui/IconBox"
 
 const services = [
   {
@@ -10,7 +11,6 @@ const services = [
     title: "Custom Web Development",
     description:
       "Handcrafted code built for your specific needs. No page builders, no bloated plugins — just clean, maintainable code that performs.",
-    size: "large",
     tag: "Core Service",
   },
   {
@@ -18,7 +18,6 @@ const services = [
     title: "UI/UX Design",
     description:
       "Interfaces that guide users naturally toward action. Every layout decision is intentional, every interaction purposeful.",
-    size: "medium",
     tag: "Design",
   },
   {
@@ -26,7 +25,6 @@ const services = [
     title: "Performance-First",
     description:
       "Lighthouse scores that matter. Sub-second load times, optimized assets, and architecture built for speed.",
-    size: "medium",
     tag: "Optimization",
   },
   {
@@ -34,7 +32,6 @@ const services = [
     title: "100% Customizable",
     description:
       "Your website should reflect your brand, not a template. Every element is built to your specifications.",
-    size: "small",
     tag: "Flexibility",
   },
   {
@@ -42,7 +39,6 @@ const services = [
     title: "Secure by Default",
     description:
       "Security best practices built in from the ground up. No afterthoughts, no vulnerabilities left unaddressed.",
-    size: "small",
     tag: "Security",
   },
   {
@@ -50,7 +46,6 @@ const services = [
     title: "Scalable Architecture",
     description:
       "Foundations designed to grow. Whether you need to handle 100 or 100,000 users, we build for tomorrow.",
-    size: "small",
     tag: "Infrastructure",
   },
 ]
@@ -70,7 +65,7 @@ export function FeaturesSection() {
 
   return (
     <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
-      {/* Large featured card */}
+      {/* Large featured card — Custom Web Development */}
       <motion.div
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
@@ -79,9 +74,7 @@ export function FeaturesSection() {
         className="md:col-span-2 p-8 rounded-2xl bg-stone-900/60 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group"
       >
         <div className="flex items-start gap-4 mb-6">
-          <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0 group-hover:bg-amber-500/15 transition-colors duration-300">
-            <Code2 size={22} className="text-amber-500" />
-          </div>
+          <IconBox icon={services[0].icon} size="lg" />
           <div>
             <span className="text-xs font-semibold text-amber-500/70 uppercase tracking-wider">
               {services[0].tag}
@@ -110,7 +103,7 @@ export function FeaturesSection() {
         </div>
       </motion.div>
 
-      {/* Medium card - UI/UX */}
+      {/* UI/UX Design */}
       <motion.div
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
@@ -118,8 +111,8 @@ export function FeaturesSection() {
         variants={cardVariants}
         className="p-6 rounded-2xl bg-stone-900/60 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group"
       >
-        <div className="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-4 group-hover:bg-amber-500/15 transition-colors duration-300">
-          <Palette size={20} className="text-amber-500" />
+        <div className="mb-4">
+          <IconBox icon={services[1].icon} size="md" />
         </div>
         <span className="text-xs font-semibold text-amber-500/70 uppercase tracking-wider">
           {services[1].tag}
@@ -132,7 +125,7 @@ export function FeaturesSection() {
         </p>
       </motion.div>
 
-      {/* Medium card - Performance */}
+      {/* Performance-First */}
       <motion.div
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
@@ -140,8 +133,8 @@ export function FeaturesSection() {
         variants={cardVariants}
         className="p-6 rounded-2xl bg-stone-900/60 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group"
       >
-        <div className="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-4 group-hover:bg-amber-500/15 transition-colors duration-300">
-          <Gauge size={20} className="text-amber-500" />
+        <div className="mb-4">
+          <IconBox icon={services[2].icon} size="md" />
         </div>
         <span className="text-xs font-semibold text-amber-500/70 uppercase tracking-wider">
           {services[2].tag}
@@ -152,7 +145,7 @@ export function FeaturesSection() {
         <p className="text-stone-400 text-sm leading-relaxed">
           {services[2].description}
         </p>
-        {/* Visual element */}
+        {/* Animated bar chart reinforces the performance message visually */}
         <div className="mt-4 flex items-end gap-1.5 h-10">
           {[85, 60, 90, 70, 95, 80, 100].map((h, i) => (
             <motion.div
@@ -166,7 +159,7 @@ export function FeaturesSection() {
         </div>
       </motion.div>
 
-      {/* Small cards row */}
+      {/* Small service cards */}
       {services.slice(3).map((service, i) => {
         const Icon = service.icon
         return (
@@ -178,8 +171,8 @@ export function FeaturesSection() {
             variants={cardVariants}
             className="p-6 rounded-2xl bg-stone-900/60 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group"
           >
-            <div className="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-4 group-hover:bg-amber-500/15 transition-colors duration-300">
-              <Icon size={18} className="text-amber-500" />
+            <div className="mb-4">
+              <IconBox icon={Icon} size="sm" />
             </div>
             <span className="text-xs font-semibold text-amber-500/70 uppercase tracking-wider">
               {service.tag}

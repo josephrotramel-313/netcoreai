@@ -1,8 +1,10 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { fadeUpVariants } from "@/lib/animation"
+import { SectionBadge } from "@/components/ui/SectionBadge"
 
 const steps = [
   {
@@ -73,19 +75,26 @@ const steps = [
   },
 ]
 
+const CARD_WIDTH = 288 + 20 // w-72 (288px) + gap-5 (20px)
+
 export default function Workflow() {
   const sectionRef = useRef(null)
   const scrollRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
+  const [activeIndex, setActiveIndex] = useState(0)
 
   const scroll = (direction: "left" | "right") => {
-    if (scrollRef.current) {
-      const amount = 360
-      scrollRef.current.scrollBy({
-        left: direction === "right" ? amount : -amount,
-        behavior: "smooth",
-      })
-    }
+    if (!scrollRef.current) return
+    scrollRef.current.scrollBy({
+      left: direction === "right" ? CARD_WIDTH : -CARD_WIDTH,
+      behavior: "smooth",
+    })
+  }
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return
+    const index = Math.round(scrollRef.current.scrollLeft / CARD_WIDTH)
+    setActiveIndex(Math.min(index, steps.length - 1))
   }
 
   return (
@@ -96,19 +105,20 @@ export default function Workflow() {
     >
       <div className="max-w-6xl mx-auto px-6 mb-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-stone-800/80 border border-stone-700 text-stone-400 text-sm font-medium mb-6"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          custom={0}
+          variants={fadeUpVariants}
         >
-          Our Process
+          <SectionBadge>Our Process</SectionBadge>
         </motion.div>
 
         <div className="flex items-end justify-between">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            custom={0.1}
+            variants={fadeUpVariants}
             className="text-4xl md:text-5xl font-extrabold text-stone-50 leading-tight"
           >
             A process built for
@@ -116,7 +126,6 @@ export default function Workflow() {
             <span className="text-amber-500">clarity and results.</span>
           </motion.h2>
 
-          {/* Scroll controls */}
           <div className="hidden md:flex gap-3">
             <button
               onClick={() => scroll("left")}
@@ -136,16 +145,16 @@ export default function Workflow() {
         </div>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          custom={0.2}
+          variants={fadeUpVariants}
           className="max-w-xl text-stone-400 text-lg leading-relaxed mt-4"
         >
           From first call to final payment, every step is transparent, collaborative, and designed to make you confident.
         </motion.p>
       </div>
 
-      {/* Horizontal Scroll Container */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
@@ -153,10 +162,10 @@ export default function Workflow() {
       >
         <div
           ref={scrollRef}
+          onScroll={handleScroll}
           className="flex gap-5 overflow-x-auto scrollbar-hide px-6 pb-4"
           style={{ scrollSnapType: "x mandatory" }}
         >
-          {/* Left padding for max-width alignment */}
           <div className="flex-shrink-0 w-[calc((100vw-72rem)/2)] hidden xl:block" />
 
           {steps.map((step, i) => (
@@ -165,10 +174,9 @@ export default function Workflow() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.05 }}
-              className="flex-shrink-0 w-72 p-6 rounded-2xl bg-stone-900/60 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group"
+              className="relative flex-shrink-0 w-72 p-6 rounded-2xl bg-stone-900/60 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group"
               style={{ scrollSnapAlign: "start" }}
             >
-              {/* Gold number badge */}
               <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mb-5 group-hover:bg-amber-500/15 transition-colors duration-300">
                 <span className="text-amber-500 font-extrabold text-lg">
                   {step.number}
@@ -182,9 +190,8 @@ export default function Workflow() {
                 {step.description}
               </p>
 
-              {/* Connector line */}
               {i < steps.length - 1 && (
-                <div className="absolute right-0 top-1/2 w-5 h-px bg-amber-500/20" />
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-5 h-px bg-amber-500/20" />
               )}
             </motion.div>
           ))}
@@ -192,14 +199,18 @@ export default function Workflow() {
           <div className="flex-shrink-0 w-6" />
         </div>
 
-        {/* Scroll hint */}
         <div className="flex justify-center mt-6 gap-1.5">
           {steps.map((_, i) => (
-            <div
+            <button
               key={i}
-              className={`h-1 rounded-full bg-stone-700 transition-all duration-300 ${
-                i < 3 ? "w-6 bg-amber-500/50" : "w-1.5"
+              onClick={() => {
+                if (!scrollRef.current) return
+                scrollRef.current.scrollTo({ left: i * CARD_WIDTH, behavior: "smooth" })
+              }}
+              className={`h-1 rounded-full transition-all duration-300 cursor-pointer ${
+                i === activeIndex ? "w-6 bg-amber-500" : "w-1.5 bg-stone-700"
               }`}
+              aria-label={`Go to step ${i + 1}`}
             />
           ))}
         </div>

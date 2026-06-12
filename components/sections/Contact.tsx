@@ -3,6 +3,9 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { Mail, ArrowRight, MessageCircle } from "lucide-react"
+import { fadeUpVariants } from "@/lib/animation"
+import { SectionBadge } from "@/components/ui/SectionBadge"
+import { IconBox } from "@/components/ui/IconBox"
 
 export default function Contact() {
   const ref = useRef(null)
@@ -16,21 +19,21 @@ export default function Contact() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Left: CTA Copy */}
           <div>
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-stone-800/80 border border-stone-700 text-stone-400 text-sm font-medium mb-6"
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              custom={0}
+              variants={fadeUpVariants}
             >
-              Get in Touch
+              <SectionBadge>Get in Touch</SectionBadge>
             </motion.div>
 
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              custom={0.1}
+              variants={fadeUpVariants}
               className="text-4xl md:text-5xl font-extrabold text-stone-50 leading-tight mb-6"
             >
               Ready to build
@@ -39,9 +42,10 @@ export default function Contact() {
             </motion.h2>
 
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              custom={0.2}
+              variants={fadeUpVariants}
               className="text-stone-400 text-lg leading-relaxed mb-8"
             >
               Whether you have a fully formed idea or just a rough direction —
@@ -50,9 +54,10 @@ export default function Contact() {
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              custom={0.3}
+              variants={fadeUpVariants}
               className="flex flex-col gap-4"
             >
               <a
@@ -60,9 +65,7 @@ export default function Contact() {
                 className="inline-flex items-center gap-3 group cursor-pointer"
                 aria-label="Email Net Core AI"
               >
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center group-hover:bg-amber-500/20 transition-colors duration-300">
-                  <Mail size={20} className="text-amber-500" />
-                </div>
+                <IconBox icon={Mail} size="lg" />
                 <div>
                   <p className="text-stone-500 text-xs font-medium mb-0.5">Email us directly</p>
                   <p className="text-stone-200 font-semibold group-hover:text-amber-400 transition-colors duration-200">
@@ -82,7 +85,6 @@ export default function Contact() {
             </motion.div>
           </div>
 
-          {/* Right: Info Cards */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}

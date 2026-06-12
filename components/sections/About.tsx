@@ -3,6 +3,9 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Target, Lightbulb, Shield } from "lucide-react"
+import { fadeUpVariants } from "@/lib/animation"
+import { SectionBadge } from "@/components/ui/SectionBadge"
+import { IconBox } from "@/components/ui/IconBox"
 
 const values = [
   {
@@ -29,15 +32,6 @@ export default function About() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: (delay: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] as [number, number, number, number], delay },
-    }),
-  }
-
   return (
     <section
       id="about"
@@ -46,23 +40,21 @@ export default function About() {
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Left: Story */}
           <div>
             <motion.div
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               custom={0}
-              variants={fadeUp}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-stone-800/80 border border-stone-700 text-stone-400 text-sm font-medium mb-6"
+              variants={fadeUpVariants}
             >
-              About Us
+              <SectionBadge>About Us</SectionBadge>
             </motion.div>
 
             <motion.h2
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               custom={0.1}
-              variants={fadeUp}
+              variants={fadeUpVariants}
               className="text-4xl md:text-5xl font-extrabold text-stone-50 leading-tight mb-6"
             >
               Built by developers
@@ -74,7 +66,7 @@ export default function About() {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               custom={0.2}
-              variants={fadeUp}
+              variants={fadeUpVariants}
               className="text-stone-400 text-lg leading-relaxed mb-6"
             >
               Net Core AI was founded on a simple belief: most businesses deserve
@@ -87,7 +79,7 @@ export default function About() {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               custom={0.3}
-              variants={fadeUp}
+              variants={fadeUpVariants}
               className="text-stone-400 text-lg leading-relaxed mb-8"
             >
               Over the past 3+ years, we&apos;ve developed a disciplined process —
@@ -99,7 +91,7 @@ export default function About() {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               custom={0.4}
-              variants={fadeUp}
+              variants={fadeUpVariants}
               className="flex flex-wrap gap-6"
             >
               <div className="flex flex-col">
@@ -119,7 +111,6 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* Right: Values */}
           <div className="flex flex-col gap-5">
             {values.map((value, i) => {
               const Icon = value.icon
@@ -129,11 +120,11 @@ export default function About() {
                   initial="hidden"
                   animate={isInView ? "visible" : "hidden"}
                   custom={0.2 + i * 0.12}
-                  variants={fadeUp}
-                  className="flex gap-5 p-6 rounded-2xl bg-stone-900/50 border border-stone-800 hover:border-amber-500/30 transition-all duration-300"
+                  variants={fadeUpVariants}
+                  className="flex gap-5 p-6 rounded-2xl bg-stone-900/50 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group"
                 >
-                  <div className="flex-shrink-0 w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
-                    <Icon size={20} className="text-amber-500" />
+                  <div className="flex-shrink-0">
+                    <IconBox icon={Icon} size="md" />
                   </div>
                   <div>
                     <h3 className="text-stone-50 font-semibold text-lg mb-1">

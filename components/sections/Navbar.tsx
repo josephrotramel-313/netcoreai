@@ -17,10 +17,13 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
+    const handleScroll = () => {
+      const next = window.scrollY > 20
+      if (next !== scrolled) setScrolled(next)
+    }
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [scrolled])
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false)
@@ -41,7 +44,6 @@ export default function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between px-6 py-4">
-          {/* Logo */}
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="cursor-pointer group"
@@ -52,7 +54,6 @@ export default function Navbar() {
             </span>
           </button>
 
-          {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <button
@@ -65,17 +66,13 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="hidden md:flex items-center">
-            <button
-              onClick={() => handleNavClick("#contact")}
-              className="cursor-pointer px-5 py-2.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-sm font-semibold transition-all duration-200 hover:scale-105"
-            >
-              Get a Quote
-            </button>
-          </div>
+          <button
+            onClick={() => handleNavClick("#contact")}
+            className="hidden md:inline-flex cursor-pointer px-5 py-2.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-sm font-semibold transition-all duration-200 hover:scale-105"
+          >
+            Get a Quote
+          </button>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden cursor-pointer text-stone-400 hover:text-stone-50 transition-colors"
@@ -86,7 +83,6 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

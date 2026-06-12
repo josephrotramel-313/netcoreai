@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 interface TypewriterProps {
   words: string[]
@@ -21,6 +21,7 @@ export function Typewriter({
   const [wordIndex, setWordIndex] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
   const [showCursor, setShowCursor] = useState(true)
+  const innerTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined)
 
   const currentWord = words[wordIndex]
 
@@ -31,7 +32,7 @@ export function Typewriter({
           setDisplayText(currentWord.substring(0, charIndex + 1))
           setCharIndex(charIndex + 1)
         } else {
-          setTimeout(() => {
+          innerTimerRef.current = setTimeout(() => {
             setIsDeleting(true)
           }, delayBetweenWords)
         }
@@ -45,7 +46,10 @@ export function Typewriter({
         }
       }
     }, isDeleting ? speed / 2 : speed)
-    return () => clearTimeout(timeout)
+    return () => {
+      clearTimeout(timeout)
+      clearTimeout(innerTimerRef.current)
+    }
   }, [charIndex, currentWord, isDeleting, speed, delayBetweenWords, wordIndex, words])
 
   useEffect(() => {
