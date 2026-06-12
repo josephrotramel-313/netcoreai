@@ -1,0 +1,127 @@
+"use client"
+
+import { useRef } from "react"
+import { motion, useInView } from "framer-motion"
+import { Mail, ArrowRight, MessageCircle } from "lucide-react"
+
+export default function Contact() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
+
+  return (
+    <section
+      id="contact"
+      ref={ref}
+      className="py-28 px-6 border-t border-stone-800"
+    >
+      <div className="max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          {/* Left: CTA Copy */}
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-stone-800/80 border border-stone-700 text-stone-400 text-sm font-medium mb-6"
+            >
+              Get in Touch
+            </motion.div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl md:text-5xl font-extrabold text-stone-50 leading-tight mb-6"
+            >
+              Ready to build
+              <br />
+              <span className="text-amber-500">something great?</span>
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-stone-400 text-lg leading-relaxed mb-8"
+            >
+              Whether you have a fully formed idea or just a rough direction —
+              we&apos;re here to help you think it through and build it right.
+              Reach out and let&apos;s talk.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col gap-4"
+            >
+              <a
+                href="mailto:netcoreaisolutions@gmail.com"
+                className="inline-flex items-center gap-3 group cursor-pointer"
+                aria-label="Email Net Core AI"
+              >
+                <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center group-hover:bg-amber-500/20 transition-colors duration-300">
+                  <Mail size={20} className="text-amber-500" />
+                </div>
+                <div>
+                  <p className="text-stone-500 text-xs font-medium mb-0.5">Email us directly</p>
+                  <p className="text-stone-200 font-semibold group-hover:text-amber-400 transition-colors duration-200">
+                    netcoreaisolutions@gmail.com
+                  </p>
+                </div>
+              </a>
+
+              <a
+                href="mailto:netcoreaisolutions@gmail.com?subject=Project%20Inquiry&body=Hi%20Net%20Core%20AI%20team%2C%0A%0AI%27d%20like%20to%20discuss%20a%20project%20with%20you.%0A%0AHere%27s%20a%20brief%20overview%3A%0A"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold text-base transition-all duration-200 hover:scale-105 cursor-pointer w-fit"
+              >
+                <MessageCircle size={18} />
+                Start a Conversation
+                <ArrowRight size={18} />
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Right: Info Cards */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="flex flex-col gap-5"
+          >
+            <div className="p-6 rounded-2xl bg-stone-900/50 border border-stone-800">
+              <h3 className="text-stone-50 font-bold text-lg mb-3">
+                What to expect
+              </h3>
+              <ul className="space-y-3">
+                {[
+                  "Response within 24 hours",
+                  "Free 30-minute discovery call",
+                  "Detailed proposal within 3 business days",
+                  "No hidden fees — ever",
+                  "Dedicated point of contact throughout",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-stone-400 text-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-amber-500/5 border border-amber-500/20">
+              <p className="text-stone-300 text-sm leading-relaxed italic">
+                &ldquo;We don&apos;t take on every project — we take on the right ones.
+                If we&apos;re a good fit, we&apos;ll tell you. If we&apos;re not, we&apos;ll
+                point you in the right direction.&rdquo;
+              </p>
+              <p className="text-amber-500 text-sm font-semibold mt-4">
+                — Net Core AI Team
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
