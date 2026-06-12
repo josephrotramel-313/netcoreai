@@ -49,14 +49,18 @@ export default function Navbar() {
             className="cursor-pointer group"
             aria-label="Go to top"
           >
-            <span
-              className="text-xl font-bold tracking-tight text-stone-50 group-hover:text-accent transition-colors duration-200 select-none"
-              style={{
-                textShadow:
-                  "1px 1px 0 rgb(30,50,80), 2px 2px 0 rgb(20,40,70), 3px 3px 0 rgb(10,25,50)",
-              }}
-            >
-              NetCore<span className="text-accent">AI</span>
+            <span className="text-xl font-bold tracking-tight select-none font-mono">
+              <span className="text-accent">&lt;/&gt;</span>
+              <span
+                className="text-stone-50 group-hover:text-accent transition-colors duration-200"
+                style={{
+                  textShadow:
+                    "1px 1px 0 rgb(20,40,70), 2px 2px 0 rgb(10,25,50), 3px 3px 0 rgb(5,15,35)",
+                }}
+              >
+                NetCore
+              </span>
+              <span className="text-accent">&lt;/&gt;</span>
             </span>
           </button>
 
