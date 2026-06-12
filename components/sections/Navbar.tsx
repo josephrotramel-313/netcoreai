@@ -37,10 +37,10 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl rounded-2xl transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
           scrolled
-            ? "bg-stone-950/80 backdrop-blur-xl border border-stone-800/60 shadow-2xl"
-            : "bg-stone-950/40 backdrop-blur-md border border-stone-800/30"
+            ? "bg-stone-950/90 backdrop-blur-xl border-b border-stone-800/60 shadow-2xl"
+            : "bg-stone-950/40 backdrop-blur-md border-b border-stone-800/20"
         }`}
       >
         <div className="flex items-center justify-between px-6 py-4">
@@ -100,7 +100,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-24 left-4 right-4 z-40 rounded-2xl bg-stone-950/95 backdrop-blur-xl border border-stone-800 shadow-2xl p-6"
+            className="fixed top-[65px] left-0 right-0 z-40 bg-stone-950/95 backdrop-blur-xl border-b border-stone-800 shadow-2xl p-6"
           >
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (

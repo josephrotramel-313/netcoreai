@@ -77,7 +77,7 @@ export default function Hero() {
           animate="visible"
           custom={0.3}
           variants={reducedFadeUp}
-          className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-accent leading-none mb-8 min-h-[1.2em]"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-accent leading-none mb-8 min-h-[1.2em]"
         >
           <Typewriter
             words={typewriterPhrases}

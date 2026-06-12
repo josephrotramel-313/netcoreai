@@ -6,7 +6,7 @@
   --foreground: #fafaf9;
   --primary: #1C1917;
   --secondary: #44403C;
-  --accent: rgb(100, 181, 246);
+  --accent: #64b5f6;
 }
 
 @theme inline {
@@ -14,7 +14,7 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
-  --color-accent: rgb(100, 181, 246);
+  --color-accent: #64b5f6;
   --font-sans: "Space Grotesk", sans-serif;
 }
 
