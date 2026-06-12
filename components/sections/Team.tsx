@@ -2,7 +2,6 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import Image from "next/image"
 import { Phone } from "lucide-react"
 import { fadeUpVariants } from "@/lib/animation"
 import { SectionBadge } from "@/components/ui/SectionBadge"
@@ -10,27 +9,30 @@ import { SectionBadge } from "@/components/ui/SectionBadge"
 const team = [
   {
     name: "Joseph Rotramel",
+    initials: "JR",
     title: "Chief Executive Officer",
     phone: "(469) 442-5018",
     tel: "+14694425018",
-    photoId: "1472099645785-5658abf4ff4e",
     bio: "Leads the company vision, client relationships, and strategic direction. Obsessed with delivering outcomes, not just deliverables.",
+    hue: "from-amber-600 to-amber-800",
   },
   {
     name: "Felix Odunayo",
+    initials: "FO",
     title: "Chief Technology Officer",
     phone: "(214) 962-7439",
     tel: "+12149627439",
-    photoId: "1507003211169-0a1dd7228f2d",
     bio: "Architects the technical foundation for every project. Brings deep expertise in modern web technologies and scalable systems.",
+    hue: "from-stone-600 to-stone-800",
   },
   {
     name: "James Williams",
+    initials: "JW",
     title: "Chief Marketing Officer",
     phone: "(214) 636-4709",
     tel: "+12146364709",
-    photoId: "1500648767791-00dcc994a43e",
     bio: "Drives growth strategy, brand positioning, and client acquisition. Turns great products into compelling stories.",
+    hue: "from-amber-700 to-stone-700",
   },
 ]
 
@@ -90,14 +92,11 @@ export default function Team() {
               variants={fadeUpVariants}
               className="group p-6 rounded-2xl bg-stone-900/50 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 hover:scale-[1.02]"
             >
-              <div className="relative w-20 h-20 rounded-2xl overflow-hidden mb-5 border border-stone-700 group-hover:border-amber-500/40 transition-colors duration-300">
-                <Image
-                  src={`https://images.unsplash.com/photo-${member.photoId}?w=400&h=400&fit=crop&q=80`}
-                  alt={`${member.name}, ${member.title} at Net Core AI`}
-                  fill
-                  className="object-cover"
-                  sizes="80px"
-                />
+              {/* Monogram avatar */}
+              <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${member.hue} flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300`}>
+                <span className="text-white font-bold text-xl tracking-tight" style={{ fontFamily: "Syne, sans-serif" }}>
+                  {member.initials}
+                </span>
               </div>
 
               <h3 className="text-stone-50 font-bold text-xl mb-0.5">

@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { fadeUpVariants } from "@/lib/animation"
 import { SectionBadge } from "@/components/ui/SectionBadge"
+import { Waves } from "@/components/ui/wave-background"
 
 const steps = [
   {
@@ -75,7 +76,7 @@ const steps = [
   },
 ]
 
-const CARD_WIDTH = 288 + 20 // w-72 (288px) + gap-5 (20px)
+const CARD_WIDTH = 288 + 20
 
 export default function Workflow() {
   const sectionRef = useRef(null)
@@ -101,9 +102,11 @@ export default function Workflow() {
     <section
       id="workflow"
       ref={sectionRef}
-      className="py-28 border-t border-stone-800 overflow-hidden"
+      className="relative py-28 border-t border-stone-800 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-6 mb-12">
+      <Waves strokeColor="rgba(202,138,4,0.25)" backgroundColor="transparent" pointerSize={0.3} />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6 mb-12">
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -159,6 +162,7 @@ export default function Workflow() {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.3 }}
+        className="relative z-10"
       >
         <div
           ref={scrollRef}
@@ -174,11 +178,11 @@ export default function Workflow() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.05 }}
-              className="relative flex-shrink-0 w-72 p-6 rounded-2xl bg-stone-900/60 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group"
+              className="relative flex-shrink-0 w-72 p-6 rounded-2xl bg-stone-900/80 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group backdrop-blur-sm"
               style={{ scrollSnapAlign: "start" }}
             >
               <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mb-5 group-hover:bg-amber-500/15 transition-colors duration-300">
-                <span className="text-amber-500 font-extrabold text-lg">
+                <span className="text-amber-500 font-extrabold text-lg font-mono">
                   {step.number}
                 </span>
               </div>

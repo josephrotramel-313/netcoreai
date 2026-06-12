@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Net Core AI — Premium Web Development Agency",
+  title: "Net Core — Premium Web Development Agency",
   description:
-    "Net Core AI builds custom, high-performance websites and web applications for businesses that demand the best. 3+ years of delivering premium digital experiences.",
+    "Net Core builds custom, high-performance websites and web applications for businesses that demand the best. 3+ years of delivering premium digital experiences.",
   keywords: [
     "web development",
     "web design",

@@ -6,6 +6,7 @@ import { Target, Lightbulb, Shield } from "lucide-react"
 import { fadeUpVariants } from "@/lib/animation"
 import { SectionBadge } from "@/components/ui/SectionBadge"
 import { IconBox } from "@/components/ui/IconBox"
+import { BackgroundPaths } from "@/components/ui/background-paths"
 
 const values = [
   {
@@ -36,9 +37,11 @@ export default function About() {
     <section
       id="about"
       ref={ref}
-      className="py-28 px-6 border-t border-stone-800"
+      className="relative py-28 px-6 border-t border-stone-800 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto">
+      <BackgroundPaths />
+
+      <div className="relative z-10 max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <motion.div
@@ -69,7 +72,7 @@ export default function About() {
               variants={fadeUpVariants}
               className="text-stone-400 text-lg leading-relaxed mb-6"
             >
-              Net Core AI was founded on a simple belief: most businesses deserve
+              Net Core was founded on a simple belief: most businesses deserve
               better websites than they have. We started building for clients
               who were tired of cookie-cutter templates and agencies that
               over-promised and under-delivered.
@@ -121,7 +124,7 @@ export default function About() {
                   animate={isInView ? "visible" : "hidden"}
                   custom={0.2 + i * 0.12}
                   variants={fadeUpVariants}
-                  className="flex gap-5 p-6 rounded-2xl bg-stone-900/50 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group"
+                  className="flex gap-5 p-6 rounded-2xl bg-stone-900/70 border border-stone-800 hover:border-amber-500/30 transition-all duration-300 group backdrop-blur-sm"
                 >
                   <div className="flex-shrink-0">
                     <IconBox icon={Icon} size="md" />
