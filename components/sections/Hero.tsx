@@ -52,15 +52,15 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <motion.div
+        <motion.p
           initial="hidden"
           animate="visible"
           custom={0}
           variants={reducedFadeUp}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-8"
+          className="text-stone-400 text-sm font-medium tracking-widest uppercase mb-8"
         >
           Premium Web Development Agency
-        </motion.div>
+        </motion.p>
 
         <motion.h1
           initial="hidden"
