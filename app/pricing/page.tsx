@@ -45,7 +45,7 @@ const websiteTiers = [
       "2 rounds of revision",
       "30-day post-launch support",
     ],
-    deliveryTime: "2–3 weeks",
+    deliveryTime: "1–2 weeks",
   },
   {
     name: "Professional",
@@ -64,7 +64,7 @@ const websiteTiers = [
       "4 rounds of revision",
       "60-day post-launch support",
     ],
-    deliveryTime: "3–5 weeks",
+    deliveryTime: "1–2 weeks",
   },
   {
     name: "Premium",
@@ -84,7 +84,7 @@ const websiteTiers = [
       "90-day priority support",
       "Handoff training session (recorded)",
     ],
-    deliveryTime: "5–8 weeks",
+    deliveryTime: "1–2 weeks",
   },
 ]
 
@@ -517,16 +517,8 @@ export default function PricingPage() {
                 a: "Scope changes are handled transparently. If you want to add something mid-project, we'll quote the additional cost before doing any work. No surprise invoices.",
               },
               {
-                q: "Do you offer discounts for bundling services?",
-                a: "Yes — clients who bundle a website with a retainer plan receive a 10% discount on the retainer. Clients who add the analytics dashboard at time of website purchase get the first month free.",
-              },
-              {
                 q: "How long does a typical project take?",
-                a: "Starter sites typically take 2–3 weeks. Professional builds run 3–5 weeks. Premium projects 5–8 weeks. Timeline depends heavily on how quickly we receive assets and feedback from your side.",
-              },
-              {
-                q: "Can you work with an existing website?",
-                a: "Absolutely. The retainer, chatbot, and dashboard products work with any site. We also offer redesign and migration services — reach out for a custom quote.",
+                a: "All projects typically take 1–2 weeks. Timeline depends heavily on how quickly we receive assets and feedback from your side.",
               },
             ].map(({ q, a }) => (
               <div key={q} className="p-6 rounded-xl border border-stone-800 bg-stone-900/30">
