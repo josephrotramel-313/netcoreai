@@ -4,7 +4,7 @@
 
 Run this on your VPS every time you want to deploy:
 
-  cd ~/netcoreai && git pull origin main && docker compose down && docker compose build && docker compose up -d
+  cd ~/netcoreai && git pull origin main && docker compose down --remove-orphans && docker rm -f netcoreai 2>/dev/null; docker compose build && docker compose up -d
 
 ====================================================
 
@@ -18,8 +18,12 @@ Step-by-step explanation:
   git pull origin main
     Pull the latest code from the main branch.
 
-  docker compose down
-    Stop and remove the running container gracefully.
+  docker compose down --remove-orphans && docker rm -f netcoreai 2>/dev/null
+    Stop and remove the running container. --remove-orphans cleans up
+    any leftover containers from old service definitions. The docker rm
+    force-removes the named container if it somehow survived compose down,
+    which prevents the "container name already in use" conflict error.
+    The 2>/dev/null suppresses the error if the container doesn't exist.
 
   docker compose build
     Rebuild the Docker image from the updated Dockerfile.
@@ -56,6 +60,6 @@ To return to main after a rollback:
 
 ONE-LINER WITH LOGGING (recommended for production)
 
-  cd ~/netcoreai && git pull origin main && docker compose down && docker compose build && docker compose up -d && docker compose logs --tail=20
+  cd ~/netcoreai && git pull origin main && docker compose down --remove-orphans && docker rm -f netcoreai 2>/dev/null; docker compose build && docker compose up -d && docker compose logs --tail=20
 
 ====================================================
