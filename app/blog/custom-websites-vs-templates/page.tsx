@@ -8,16 +8,6 @@ export const metadata: Metadata = {
   title: "Custom Websites vs Templates: A Technical Analysis | Net Core AI Blog",
   description:
     "Custom-built websites consistently outperform WordPress templates in load speed, SEO, security, and conversion rates. Here's the data that proves it.",
-  keywords: [
-    "custom website vs template",
-    "wordpress vs custom development",
-    "website performance comparison",
-    "custom web development benefits",
-    "page speed SEO",
-    "Core Web Vitals custom website",
-    "wordpress template problems",
-    "custom website ROI",
-  ],
   openGraph: {
     title: "Why Custom Websites Outperform Templates: A Data-Driven Technical Analysis",
     description:
@@ -26,15 +16,61 @@ export const metadata: Metadata = {
     url: "https://netcoreai.tech/blog/custom-websites-vs-templates",
     publishedTime: "2024-12-01",
     authors: ["Felix Odunayo"],
+    images: [
+      {
+        url: "https://netcoreai.tech/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Why Custom Websites Outperform Templates: A Technical Analysis",
+      },
+    ],
+    siteName: "Net Core AI",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
   alternates: {
     canonical: "https://netcoreai.tech/blog/custom-websites-vs-templates",
   },
 }
 
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline:
+    "Why Custom Websites Outperform Templates: A Data-Driven Technical Analysis",
+  description:
+    "Custom-built websites consistently outperform WordPress templates in load speed, SEO, security, and conversion rates.",
+  datePublished: "2024-12-01",
+  dateModified: "2024-12-01",
+  author: {
+    "@type": "Person",
+    name: "Felix Odunayo",
+    jobTitle: "Chief Technology Officer",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Net Core AI",
+    url: "https://netcoreai.tech",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://netcoreai.tech/favicon.svg",
+    },
+  },
+  url: "https://netcoreai.tech/blog/custom-websites-vs-templates",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://netcoreai.tech/blog/custom-websites-vs-templates",
+  },
+}
+
 export default function BlogPost2() {
   return (
     <main className="flex flex-col min-h-screen bg-[#0C0A09] text-stone-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <Navbar />
 
       <article className="pt-32 pb-20 px-6">

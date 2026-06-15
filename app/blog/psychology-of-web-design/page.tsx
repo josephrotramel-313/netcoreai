@@ -8,16 +8,6 @@ export const metadata: Metadata = {
   title: "The Psychology of Web Design: Color, Layout & Typography | Net Core AI Blog",
   description:
     "Discover how color theory, visual hierarchy, and typography choices directly impact your website's conversion rates. Science-backed design insights from Net Core AI.",
-  keywords: [
-    "web design psychology",
-    "color theory web design",
-    "typography conversion rate",
-    "visual hierarchy UX",
-    "website conversion optimization",
-    "UX design principles",
-    "CTA button design",
-    "whitespace design",
-  ],
   openGraph: {
     title: "The Psychology of Web Design: How Color, Layout & Typography Drive Conversions",
     description:
@@ -26,15 +16,61 @@ export const metadata: Metadata = {
     url: "https://netcoreai.tech/blog/psychology-of-web-design",
     publishedTime: "2024-11-15",
     authors: ["James Williams"],
+    images: [
+      {
+        url: "https://netcoreai.tech/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "The Psychology of Web Design: Color, Layout & Typography",
+      },
+    ],
+    siteName: "Net Core AI",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
   alternates: {
     canonical: "https://netcoreai.tech/blog/psychology-of-web-design",
   },
 }
 
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline:
+    "The Psychology of Web Design: How Color, Layout & Typography Drive Conversions",
+  description:
+    "Discover how color theory, visual hierarchy, and typography choices directly impact your website's conversion rates.",
+  datePublished: "2024-11-15",
+  dateModified: "2024-11-15",
+  author: {
+    "@type": "Person",
+    name: "James Williams",
+    jobTitle: "Chief Marketing Officer",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Net Core AI",
+    url: "https://netcoreai.tech",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://netcoreai.tech/favicon.svg",
+    },
+  },
+  url: "https://netcoreai.tech/blog/psychology-of-web-design",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://netcoreai.tech/blog/psychology-of-web-design",
+  },
+}
+
 export default function BlogPost1() {
   return (
     <main className="flex flex-col min-h-screen bg-[#0C0A09] text-stone-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <Navbar />
 
       <article className="pt-32 pb-20 px-6">

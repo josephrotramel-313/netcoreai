@@ -7,25 +7,115 @@ export const metadata: Metadata = {
   title: "Pricing — Net Core AI | Transparent Web Development Pricing",
   description:
     "Transparent, no-surprise pricing for custom web development, monthly retainers, AI chatbots, and analytics dashboards. Starting at $800 for a fully custom website.",
-  keywords: [
-    "web development pricing",
-    "custom website cost",
-    "web design agency pricing",
-    "AI chatbot pricing",
-    "website retainer cost",
-    "analytics dashboard pricing",
-    "Dallas web development cost",
-  ],
   openGraph: {
     title: "Pricing — Net Core AI",
     description:
       "Transparent pricing for custom websites, retainers, AI chatbots, and dashboards. No templates. No surprises.",
     type: "website",
     url: "https://netcoreai.tech/pricing",
+    siteName: "Net Core AI",
+    images: [
+      {
+        url: "https://netcoreai.tech/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Net Core AI Pricing",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
   },
   alternates: {
     canonical: "https://netcoreai.tech/pricing",
   },
+}
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Custom Web Development",
+  provider: {
+    "@type": "Organization",
+    name: "Net Core AI",
+    url: "https://netcoreai.tech",
+  },
+  description:
+    "Fully custom-coded websites and web applications built with Next.js and React. No templates, no page builders. Starting at $800.",
+  areaServed: {
+    "@type": "Country",
+    name: "United States",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Web Development Packages",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        name: "Starter Website",
+        description:
+          "Up to 5 pages, fully custom design, mobile-first, on-page SEO, contact form, 30-day support.",
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          price: "800",
+          priceCurrency: "USD",
+        },
+      },
+      {
+        "@type": "Offer",
+        name: "Professional Website",
+        description:
+          "Up to 10 pages, custom animations, CMS integration, advanced SEO, blog, GA4, 60-day support.",
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          price: "1100",
+          priceCurrency: "USD",
+        },
+      },
+      {
+        "@type": "Offer",
+        name: "Premium Website",
+        description:
+          "Unlimited pages, design system, full CMS, e-commerce ready, API integrations, 90-day priority support.",
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          price: "1500",
+          priceCurrency: "USD",
+        },
+      },
+    ],
+  },
+}
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Do you require payment upfront?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We collect a 50% deposit before work begins, with the remaining 50% due at final handoff before the site goes live. This protects both parties and aligns our incentives.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What if I need something beyond the tier I choose?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Scope changes are handled transparently. If you want to add something mid-project, we'll quote the additional cost before doing any work. No surprise invoices.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long does a typical project take?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "All projects typically take 1–2 weeks. Timeline depends heavily on how quickly we receive assets and feedback from your side.",
+      },
+    },
+  ],
 }
 
 const websiteTiers = [
@@ -187,6 +277,14 @@ const comparisonData = [
 export default function PricingPage() {
   return (
     <main className="flex flex-col min-h-screen bg-[#0C0A09] text-stone-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Navbar />
 
       {/* Hero */}

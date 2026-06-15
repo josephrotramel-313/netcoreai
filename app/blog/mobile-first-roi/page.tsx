@@ -8,16 +8,6 @@ export const metadata: Metadata = {
   title: "Mobile-First Web Design: ROI Every Business Owner Needs to Know | Net Core AI",
   description:
     "67% of web traffic is mobile. Yet most websites are still designed desktop-first. Here's what that backwards approach costs you in traffic, leads, and revenue.",
-  keywords: [
-    "mobile first web design",
-    "responsive design ROI",
-    "mobile traffic statistics 2024",
-    "mobile UX conversion rate",
-    "Core Web Vitals mobile",
-    "Google mobile first indexing",
-    "mobile website business impact",
-    "mobile bounce rate",
-  ],
   openGraph: {
     title: "Mobile-First Web Design: The ROI Every Business Owner Needs to Understand",
     description:
@@ -26,15 +16,61 @@ export const metadata: Metadata = {
     url: "https://netcoreai.tech/blog/mobile-first-roi",
     publishedTime: "2025-01-10",
     authors: ["Joseph Rotramel"],
+    images: [
+      {
+        url: "https://netcoreai.tech/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Mobile-First Web Design: The ROI Every Business Owner Needs to Understand",
+      },
+    ],
+    siteName: "Net Core AI",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
   alternates: {
     canonical: "https://netcoreai.tech/blog/mobile-first-roi",
   },
 }
 
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline:
+    "Mobile-First Web Design: The ROI Every Business Owner Needs to Understand",
+  description:
+    "67% of web traffic is mobile. Yet most websites are still designed desktop-first. Here's what that backwards approach costs you.",
+  datePublished: "2025-01-10",
+  dateModified: "2025-01-10",
+  author: {
+    "@type": "Person",
+    name: "Joseph Rotramel",
+    jobTitle: "Chief Executive Officer",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Net Core AI",
+    url: "https://netcoreai.tech",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://netcoreai.tech/favicon.svg",
+    },
+  },
+  url: "https://netcoreai.tech/blog/mobile-first-roi",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://netcoreai.tech/blog/mobile-first-roi",
+  },
+}
+
 export default function BlogPost3() {
   return (
     <main className="flex flex-col min-h-screen bg-[#0C0A09] text-stone-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <Navbar />
 
       <article className="pt-32 pb-20 px-6">

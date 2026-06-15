@@ -8,21 +8,24 @@ export const metadata: Metadata = {
   title: "Blog — Net Core AI | Web Design & Development Insights",
   description:
     "Expert insights on web design psychology, custom development vs templates, mobile-first strategy, and conversion optimization from the Net Core AI team.",
-  keywords: [
-    "web design blog",
-    "web development tips",
-    "custom website insights",
-    "UX design blog",
-    "mobile first design",
-    "conversion optimization blog",
-    "web development agency blog",
-  ],
   openGraph: {
     title: "Blog — Net Core AI",
     description:
       "Expert insights on web design, custom development, and digital strategy.",
     type: "website",
     url: "https://netcoreai.tech/blog",
+    siteName: "Net Core AI",
+    images: [
+      {
+        url: "https://netcoreai.tech/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Net Core AI Blog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
   },
   alternates: {
     canonical: "https://netcoreai.tech/blog",

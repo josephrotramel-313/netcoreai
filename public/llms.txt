@@ -1,0 +1,31 @@
+# Net Core AI
+
+Net Core AI is a premium custom web development agency based in Dallas, Texas.
+We build high-performance websites and web applications using Next.js, React, TypeScript, and modern tooling.
+We do not use templates, WordPress, or page builders — every project is written from scratch.
+
+## Services
+
+- **Custom Website Development** — fully custom-coded websites from $800, delivered in 1–2 weeks
+- **Monthly Retainer Plans** — ongoing maintenance, security, SEO, and content updates from $50/month
+- **AI Lead Conversion Chatbot** — custom-trained AI chatbot to qualify leads 24/7 ($500 one-time setup)
+- **Analytics & Management Dashboard** — real-time traffic, conversions, and lightweight CMS ($100/month)
+
+## Team
+
+- **Joseph Rotramel** — CEO & Full-Stack Developer
+- **Felix Odunayo** — CTO & Systems Engineer
+- **James Williams** — CMO & Growth Strategist
+
+## Key Pages
+
+- Homepage: https://netcoreai.tech/
+- About: https://netcoreai.tech/about
+- Pricing: https://netcoreai.tech/pricing
+- Blog: https://netcoreai.tech/blog
+- Contact: https://netcoreai.tech/#contact
+
+## Contact
+
+Email: netcoreaisolutions@gmail.com
+Phone (Joseph): (469) 442-5018

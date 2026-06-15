@@ -7,26 +7,71 @@ export const metadata: Metadata = {
   title: "About Us — Net Core AI | Premium Web Development Agency",
   description:
     "Meet the team behind Net Core AI — Joseph Rotramel, Felix Odunayo, and James Williams. Three specialists united by a mission to build exceptional digital experiences.",
-  keywords: [
-    "Net Core AI team",
-    "web development agency Texas",
-    "Joseph Rotramel CEO",
-    "Felix Odunayo CTO",
-    "James Williams CMO",
-    "custom web development agency",
-    "Dallas web design agency",
-  ],
   openGraph: {
     title: "About Net Core AI — Meet the Team",
     description:
       "Three specialists. One mission: build digital experiences that move the needle for your business.",
     type: "website",
     url: "https://netcoreai.tech/about",
+    siteName: "Net Core AI",
+    images: [
+      {
+        url: "https://netcoreai.tech/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "About Net Core AI — Meet the Team",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
   },
   alternates: {
     canonical: "https://netcoreai.tech/about",
   },
 }
+
+const personSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Joseph Rotramel",
+    jobTitle: "Chief Executive Officer",
+    worksFor: {
+      "@type": "Organization",
+      name: "Net Core AI",
+      url: "https://netcoreai.tech",
+    },
+    telephone: "+1-469-442-5018",
+    email: "netcoreaisolutions@gmail.com",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Felix Odunayo",
+    jobTitle: "Chief Technology Officer",
+    worksFor: {
+      "@type": "Organization",
+      name: "Net Core AI",
+      url: "https://netcoreai.tech",
+    },
+    telephone: "+1-214-962-7439",
+    email: "netcoreaisolutions@gmail.com",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "James Williams",
+    jobTitle: "Chief Marketing Officer",
+    worksFor: {
+      "@type": "Organization",
+      name: "Net Core AI",
+      url: "https://netcoreai.tech",
+    },
+    telephone: "+1-214-636-4709",
+    email: "netcoreaisolutions@gmail.com",
+  },
+]
 
 const team = [
   {
@@ -100,6 +145,13 @@ const values = [
 export default function AboutPage() {
   return (
     <main className="flex flex-col min-h-screen bg-[#0C0A09] text-stone-50">
+      {personSchemas.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       <Navbar />
 
       {/* Hero */}
