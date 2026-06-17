@@ -1,9 +1,7 @@
 import { cookies } from "next/headers"
-import crypto from "crypto"
+import { generateAdminToken, isValidAdminToken } from "@/lib/admin-token"
 
-export function generateAdminToken(password: string): string {
-  return crypto.createHmac("sha256", password).update("nc-admin-session").digest("hex")
-}
+export { generateAdminToken }
 
 export async function isAdminAuthorized(): Promise<boolean> {
   const password = process.env.ADMIN_PASSWORD
@@ -11,11 +9,5 @@ export async function isAdminAuthorized(): Promise<boolean> {
 
   const cookieStore = await cookies()
   const token = cookieStore.get("admin-token")?.value ?? ""
-  const expected = generateAdminToken(password)
-
-  const tokenBuf = Buffer.from(token)
-  const expectedBuf = Buffer.from(expected)
-  return (
-    tokenBuf.length === expectedBuf.length && crypto.timingSafeEqual(tokenBuf, expectedBuf)
-  )
+  return isValidAdminToken(token, password)
 }
