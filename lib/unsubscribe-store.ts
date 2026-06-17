@@ -42,3 +42,8 @@ export async function getUnsubscribes(): Promise<UnsubscribeEntry[]> {
     (a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime(),
   )
 }
+
+export async function deleteUnsubscribe(id: string): Promise<void> {
+  const entries = await readAll()
+  await writeAll(entries.filter((entry) => entry.id !== id))
+}

@@ -1,13 +1,10 @@
 import { NextResponse } from "next/server"
 import crypto from "crypto"
+import { generateAdminToken } from "@/lib/admin-auth"
 
 const HOUR_MS = 60 * 60 * 1000
 const MAX_ATTEMPTS = 10
 const attempts = new Map<string, { count: number; resetAt: number }>()
-
-function generateAdminToken(password: string): string {
-  return crypto.createHmac("sha256", password).update("nc-admin-session").digest("hex")
-}
 
 export async function POST(req: Request) {
   const password = process.env.ADMIN_PASSWORD

@@ -1,31 +1,12 @@
-import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
-import crypto from "crypto"
+import { isAdminAuthorized } from "@/lib/admin-auth"
 import { getUnsubscribes } from "@/lib/unsubscribe-store"
-import { Mail, ArrowLeft } from "lucide-react"
+import { deleteUnsubscribeAction } from "./actions"
+import { Mail, ArrowLeft, Trash2 } from "lucide-react"
 import Link from "next/link"
 
-function generateAdminToken(password: string): string {
-  return crypto.createHmac("sha256", password).update("nc-admin-session").digest("hex")
-}
-
-async function isAuthorized(): Promise<boolean> {
-  const password = process.env.ADMIN_PASSWORD
-  if (!password) return false
-
-  const cookieStore = await cookies()
-  const token = cookieStore.get("admin-token")?.value ?? ""
-  const expected = generateAdminToken(password)
-
-  const tokenBuf = Buffer.from(token)
-  const expectedBuf = Buffer.from(expected)
-  return (
-    tokenBuf.length === expectedBuf.length && crypto.timingSafeEqual(tokenBuf, expectedBuf)
-  )
-}
-
 export default async function AdminDashboard() {
-  const authorized = await isAuthorized()
+  const authorized = await isAdminAuthorized()
   if (!authorized) {
     redirect("/admin6k3-hgio")
   }
@@ -63,6 +44,7 @@ export default async function AdminDashboard() {
                 <tr className="border-b border-white/10 bg-white/[0.02]">
                   <th className="text-left px-6 py-4 text-[#777] font-semibold">Email</th>
                   <th className="text-left px-6 py-4 text-[#777] font-semibold">Submitted</th>
+                  <th className="text-right px-6 py-4 text-[#777] font-semibold">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -76,6 +58,18 @@ export default async function AdminDashboard() {
                     <td className="px-6 py-4 text-[#EAEAEA]">{entry.email}</td>
                     <td className="px-6 py-4 text-[#777]">
                       {new Date(entry.submittedAt).toLocaleString()}
+                    </td>
+                    <td className="px-6 py-4 text-right">
+                      <form action={deleteUnsubscribeAction}>
+                        <input type="hidden" name="id" value={entry.id} />
+                        <button
+                          type="submit"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-red-500/20 bg-red-500/5 text-red-400 hover:bg-red-500/10 hover:border-red-500/30 transition-colors text-xs font-medium"
+                        >
+                          <Trash2 size={12} />
+                          Delete
+                        </button>
+                      </form>
                     </td>
                   </tr>
                 ))}
