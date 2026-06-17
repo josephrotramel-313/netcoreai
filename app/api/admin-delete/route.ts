@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import { isValidAdminPassword } from "@/lib/admin-password"
-import { getUnsubscribes } from "@/lib/unsubscribe-store"
+import { deleteUnsubscribe, getUnsubscribes } from "@/lib/unsubscribe-store"
 
 const HOUR_MS = 60 * 60 * 1000
 const MAX_ATTEMPTS = 10
@@ -26,13 +26,18 @@ export async function POST(req: Request) {
 
   const body = await req.json().catch(() => ({}))
   const submitted: string = body?.password ?? ""
+  const id: string = body?.id ?? ""
 
   if (!isValidAdminPassword(submitted)) {
     record.count += 1
     return NextResponse.json({ error: "Invalid password" }, { status: 401 })
   }
 
-  attempts.delete(ip)
+  if (!id) {
+    return NextResponse.json({ error: "Missing id" }, { status: 400 })
+  }
+
+  await deleteUnsubscribe(id)
   const unsubscribes = await getUnsubscribes()
   return NextResponse.json({ ok: true, unsubscribes })
 }
