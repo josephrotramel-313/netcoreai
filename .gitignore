@@ -38,6 +38,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local data store (unsubscribe requests, etc.)
+/data
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

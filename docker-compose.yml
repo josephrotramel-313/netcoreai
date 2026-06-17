@@ -9,6 +9,9 @@ services:
       - "127.0.0.1:3001:3000"
     environment:
       - NODE_ENV=production
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+    volumes:
+      - ./data:/app/data
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.netcoreai.rule=Host(`netcoreai.tech`) || Host(`www.netcoreai.tech`)"
